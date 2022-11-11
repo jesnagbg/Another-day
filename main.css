@@ -1,0 +1,42 @@
+:root {
+    --header-height: 5rem;
+    --aside-width: 15vw;
+}
+
+body {
+    background: #e9edc9;
+    margin: 0;
+}
+
+header {
+    position:fixed;
+    top: 0rem;
+    margin: 0;
+    height: var(--header-height);
+    width: 100vw;
+    background: #ccd5ae;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header-height);
+}
+
+aside {
+    background: #d4a373;
+    height: 100vh;
+    width: var(--aside-width);
+}
+
+.pocket {
+    border-radius: 23% 77% 42% 58% / 88% 19% 81% 12%;
+    background: #faedcd;
+    height: var(--aside-width);
+}
+
+main {
+    justify-content: center;
+    margin-top: var(--header-height);
+}
