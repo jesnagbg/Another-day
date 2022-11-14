@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spel</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+<script src="main.js"></script>
 </head>
 
 <body>
@@ -17,15 +21,19 @@
     </header>
     <main>
         <div class="page-container">
-            <aside>
-                <div class="pocket">
-                    <p>Name:</p>
-                    <p>In your pocket:</p>
-                </div>
-            </aside>
-
             <div>
+                <div class="pocket">
+                    <p>Item list</p>
+                    <div id="item-container"></div>
+                </div>
+            </div>
+            <div class="main-container">
                 <h2>Game Title</h2>
+                <div>
+                    <input class="input-field-style" id="name-input" placeholder="Your name">
+                </div>
+                <button class="button-style">Start Game</button>
+
             </div>
 
         </div>
