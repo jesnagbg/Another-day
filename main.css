@@ -99,6 +99,7 @@ CSS */
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   touch-action: manipulation;
+  margin-bottom: 1rem;
 }
 
 .button-style:hover {
