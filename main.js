@@ -1,6 +1,6 @@
-
 const itemList = ["Broom", "Potatoes"];
-const nameInput = document.getElementById("name-input")
+const nameInput = document.getElementById("name-input");
+const nameButton = document.getElementById("start-button");
 let playerName;
 
 window.addEventListener('DOMContentLoaded', displayItems);
@@ -20,7 +20,9 @@ function displayItems() {
     div.append(ul);    
 }
 
+nameButton.addEventListener("click", savePlayerName);
 
-
-
-
+function savePlayerName() {
+    const playerName = document.getElementById("name-input").value;
+    console.log(playerName)
+}

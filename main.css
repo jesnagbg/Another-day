@@ -63,7 +63,12 @@ main {
 .main-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
+}
+
+.side-div {
+    width: 6rem;
 }
 
 .box-shadow {
@@ -96,16 +101,12 @@ CSS */
   font-family: Neucha, sans-serif;
   font-size: 1rem;
   line-height: 23px;
-  outline: none;
   padding: .75rem;
-  text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 

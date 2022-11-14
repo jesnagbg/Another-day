@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
-<script src="main.js"></script>
+<script defer src="main.js"></script>
 </head>
 
 <body>
@@ -21,20 +21,21 @@
     </header>
     <main>
         <div class="page-container">
-            <div>
+            <div class="side-div">
                 <div class="pocket">
                     <p>Item list</p>
                     <div id="item-container"></div>
                 </div>
             </div>
             <div class="main-container">
-                <h2>Game Title</h2>
+                <p>Welcome, what is your name?</p>
                 <div>
-                    <input class="input-field-style" id="name-input" placeholder="Your name">
+                    <input type="text" class="input-field-style" id="name-input" placeholder="Your name">
                 </div>
-                <button class="button-style">Start Game</button>
+                <button class="button-style" id="start-button">Start Game</button>
 
             </div>
+            <div class="side-div"></div>
 
         </div>
     </main>
