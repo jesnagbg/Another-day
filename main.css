@@ -35,6 +35,11 @@ header {
     justify-content: space-evenly;
 }
 
+.middle-of-screen-container {
+    display: flex;
+    flex-direction: column;
+}
+
 
 aside {
     display: flex;

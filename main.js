@@ -66,10 +66,19 @@ function clear() {
     document.getElementById("button-container").innerHTML = "";
 }
 
+function hideStartPage() {
+    startPageContent.classList.add("invis");
+}
+
+function removeStartPage() {
+    startPageContent.innerHTML = "";
+}
+
 //display pocket, first text and new buttons (delayed)
 function loadFirstPage() {
-    hideStartPage();
+    removeStartPage();
     gameContent.classList.remove("invis");
+
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
@@ -77,16 +86,14 @@ function loadFirstPage() {
     text.textContent = "Hej och välkommen till min värld";
   
     button1.textContent = "Gå till bastun";
-    button1.addEventListener('click', loadSaunaScene);
+    //button1.addEventListener('click' loadSaunaScene);
   
     button2.textContent = "Stanna kvar och lyssna på fåglarna";
-    button2.addEventListener('click', loadBirdsScene);
+    //button2.addEventListener('click' loadBirdsScene);
     
 }
 
-function hideStartPage() {
-    startPageContent.classList.add("invis");
-}
+
 
 
 
