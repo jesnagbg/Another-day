@@ -3,7 +3,7 @@ const choseWeapon = ["Sword", "Broom", "Needle"];
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
-const gameContent = document.getElementById("game-container");
+const gameContent = document.getElementById("game");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
