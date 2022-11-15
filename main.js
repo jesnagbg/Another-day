@@ -4,6 +4,7 @@ const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
+let timeoutRef;
 
 window.addEventListener("DOMContentLoaded", displayItems);
 
@@ -35,7 +36,8 @@ function oneMoreQ() {
     const extraQuestion = document.getElementById("extra-question");
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Chose your weapon';
 
-    choseYourWeapon();
+    timeoutRef = setTimeout(choseYourWeapon, 1000);
+    //choseYourWeapon();
 }
 
 function choseYourWeapon() {
@@ -44,6 +46,7 @@ function choseYourWeapon() {
     
     for (const weapon of choseWeapon) {
         const button = document.createElement("button");
+        button.className = "button-style";
         button.textContent = weapon;
         button.addEventListener('click', function() {
             itemList.push(weapon);
