@@ -2,9 +2,14 @@ let itemList = ["Broom", "Potatoes"];
 const choseWeapon = ["Sword", "Broom", "Needle"];
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
+const startPageContent = document.getElementById("start-page");
+const gameContent = document.getElementById("game-container");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
+let text;
+let button1;
+let button2;
 
 window.addEventListener("DOMContentLoaded", displayItems);
 
@@ -51,6 +56,7 @@ function choseYourWeapon() {
         button.addEventListener('click', function() {
             itemList.push(weapon);
             displayItems();
+            loadFirstPage();
         })
         div.append(button);
     }    
@@ -58,6 +64,28 @@ function choseYourWeapon() {
 
 function clear() {
     document.getElementById("button-container").innerHTML = "";
+}
+
+//display pocket, first text and new buttons (delayed)
+function loadFirstPage() {
+    hideStartPage();
+    gameContent.classList.remove("invis");
+    text = document.getElementById('text');
+    button1 = document.getElementById('opt-1');
+    button2 = document.getElementById('opt-2');
+
+    text.textContent = "Hej och välkommen till min värld";
+  
+    button1.textContent = "Gå till bastun";
+    button1.addEventListener('click', loadSaunaScene);
+  
+    button2.textContent = "Stanna kvar och lyssna på fåglarna";
+    button2.addEventListener('click', loadBirdsScene);
+    
+}
+
+function hideStartPage() {
+    startPageContent.classList.add("invis");
 }
 
 
