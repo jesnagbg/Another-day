@@ -66,6 +66,7 @@ function clear() {
     document.getElementById("button-container").innerHTML = "";
 }
 
+//do I need both?
 function hideStartPage() {
     startPageContent.classList.add("invis");
 }
@@ -83,28 +84,39 @@ function loadFirstPage() {
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
 
-    text.textContent = "Hej och välkommen till min värld";
+    text.textContent = "Hej " + playerName + " och välkommen till min värld";
   
-    button1.textContent = "Gå till köket";
-    button1.addEventListener('click', loadKitchenScene);
+    button1.textContent = "Enter the hallway";
+    button1.addEventListener('click', loadHallwayScene);
   
-    button2.textContent = "Stanna kvar och lyssna på fåglarna";
+    button2.textContent = "Check the pantry";
     //button2.addEventListener('click' loadBirdsScene);
     
 }
 
-function loadKitchenScene() {
+function loadHallwayScene() {
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
 
     text.textContent = "Hej och välkommen till min värld";
   
-    button1.textContent = "Gå till bastun";
-    //button1.addEventListener('click' loadSaunaScene);
+    button1.textContent = "Go to the bedroom";
+    button1.addEventListener('click', loadBedroomScene);
   
-    button2.textContent = "Stanna kvar och lyssna på fåglarna";
+    button2.textContent = "Go to the livingroom";
     //button2.addEventListener('click' loadBirdsScene);
+}
+
+function loadBedroomScene() {
+    text = document.getElementById('text');
+    button1 = document.getElementById('opt-1');
+    
+    text.textContent = "Hej och välkommen till min värld";
+  
+    button1.textContent = "Go back to the kitchen";
+    //button1.addEventListener('click' loadSaunaScene);
+    
 }
 
 
