@@ -1,5 +1,5 @@
 let itemList = ["Broom", "Potatoes"];
-const choseWeapon = ["Sword", "Broom", "Needle"];
+const chooseWeapon = ["Sword", "Broom", "Needle"];
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
@@ -49,7 +49,7 @@ function chooseYourWeapon() {
     clear();
     const div = document.getElementById("button-container");
     
-    for (const weapon of choseWeapon) {
+    for (const weapon of chooseWeapon) {
         const button = document.createElement("button");
         button.className = "button-style";
         button.textContent = weapon;
@@ -85,18 +85,27 @@ function loadFirstPage() {
 
     text.textContent = "Hej och välkommen till min värld";
   
-    button1.textContent = "Gå till bastun";
-    //button1.addEventListener('click' loadSaunaScene);
+    button1.textContent = "Gå till köket";
+    button1.addEventListener('click', loadKitchenScene);
   
     button2.textContent = "Stanna kvar och lyssna på fåglarna";
     //button2.addEventListener('click' loadBirdsScene);
     
 }
 
+function loadKitchenScene() {
+    text = document.getElementById('text');
+    button1 = document.getElementById('opt-1');
+    button2 = document.getElementById('opt-2');
 
-
-
-
+    text.textContent = "Hej och välkommen till min värld";
+  
+    button1.textContent = "Gå till bastun";
+    //button1.addEventListener('click' loadSaunaScene);
+  
+    button2.textContent = "Stanna kvar och lyssna på fåglarna";
+    //button2.addEventListener('click' loadBirdsScene);
+}
 
 
 
