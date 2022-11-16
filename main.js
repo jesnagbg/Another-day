@@ -39,13 +39,13 @@ function savePlayerName() {
 
 function oneMoreQ() {
     const extraQuestion = document.getElementById("extra-question");
-    extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Chose your weapon';
+    extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon';
 
-    timeoutRef = setTimeout(choseYourWeapon, 1000);
+    timeoutRef = setTimeout(chooseYourWeapon, 1000);
     //choseYourWeapon();
 }
 
-function choseYourWeapon() {
+function chooseYourWeapon() {
     clear();
     const div = document.getElementById("button-container");
     
