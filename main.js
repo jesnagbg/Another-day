@@ -74,7 +74,7 @@ function displayItems() {
     div.append(ul);
 }
 
-//do I need both?
+//do I need both? maybe hide is better than wiping for restarting
 //function hideStartPage() {
 //    startPageContent.classList.add("invis");
 //}
@@ -96,10 +96,6 @@ function loadFirstPage() {
 }
 
 function loadWindowScene() {
-    text = document.getElementById('text');
-    button1 = document.getElementById('opt-1');
-    button2 = document.getElementById('opt-2');
-
     text.textContent = "Your garden is looking quite neglected. Perhaps you should plant those potatoes?";
 
     button1.textContent = "Get a snack first";
@@ -110,10 +106,6 @@ function loadWindowScene() {
 }
 
 function loadSnackScene() {
-    text = document.getElementById('text');
-    button1 = document.getElementById('opt-1');
-    button2 = document.getElementById('opt-2');
-
     text.textContent = "You feel a bit peckish. Better check the pantry for a snack!";
 
     button1.textContent = "Go to the pantry";
@@ -122,9 +114,6 @@ function loadSnackScene() {
 }
 
 function loadPantryScene() {
-    text = document.getElementById('text');
-    button1 = document.getElementById('opt-1');
-
     text.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
 
     button1.textContent = "Give Margret a call";
@@ -135,5 +124,13 @@ function loadPantryScene() {
 
 }
 
+function makeGamePage() {
+    const p = document.createElement("p");
+    p.id = "text";
+    p.classList = "fade-in-text";
 
+    const button1 = createElement("button");
+    
+
+}
 

@@ -30,6 +30,15 @@ header {
     font-size: 34px;
 }
 
+.fade-in-text {
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 .page-container {
     display: flex;
     justify-content: space-evenly;
@@ -56,7 +65,6 @@ main {
     justify-content: center;
     margin-top: var(--header-height);
 }
-
 
 .main-container {
     display: flex;
@@ -89,12 +97,6 @@ main {
 .box-shadow {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-
-/* .button-shape {
-    <!-- HTML !-->
-<button class="button-55" role="button">Button 55</button>
-
-CSS */
 
 /* Styling for buttons and input fields */
 
