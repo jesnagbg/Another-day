@@ -1,5 +1,5 @@
-let itemList = ["Broom", "Potatoes"];
-const chooseWeapon = ["Sword", "Broom", "Needle"];
+let itemList = ["Fluff", "Button"];
+const chooseWeapon = ["Sword", "Broom", "Needle", "Carrot"];
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
@@ -11,23 +11,10 @@ let text;
 let button1;
 let button2;
 
-window.addEventListener("DOMContentLoaded", displayItems);
+window.addEventListener("DOMContentLoaded", main);
 
-nameButton.addEventListener("click", savePlayerName);
-
-function displayItems() {
-    const div = document.getElementById("item-container");
-    const ul = document.createElement("ul");
-    ul.id = "item-list";
-
-    for (const item of itemList) {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.append(li);
-    }
-
-    div.innerHTML = "";
-    div.append(ul);
+function main() {
+    nameButton.addEventListener("click", savePlayerName);
 }
 
 function savePlayerName() {
@@ -62,22 +49,40 @@ function chooseYourWeapon() {
     }    
 }
 
-function clear() {
-    document.getElementById("button-container").innerHTML = "";
-}
-
-//do I need both?
-function hideStartPage() {
-    startPageContent.classList.add("invis");
-}
-
 function removeStartPage() {
     startPageContent.innerHTML = "";
 }
 
+function clear() {
+    document.getElementById("button-container").innerHTML = "";
+}
+
+function displayItems() {
+    const p = document.getElementById("player-pocket");
+    p.textContent = "Your pocket";
+    const div = document.getElementById("item-container");
+    const ul = document.createElement("ul");
+    ul.id = "item-list";
+
+    for (const item of itemList) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.append(li);
+    }
+
+    div.innerHTML = "";
+    div.append(ul);
+}
+
+//do I need both?
+//function hideStartPage() {
+//    startPageContent.classList.add("invis");
+//}
+
 //display pocket, first text and new buttons (delayed)
 function loadFirstPage() {
     removeStartPage();
+    displayItems();
     gameContent.classList.remove("invis");
 
     text = document.getElementById('text');
@@ -87,10 +92,10 @@ function loadFirstPage() {
     text.textContent = "Hej " + playerName + " och välkommen till min värld";
   
     button1.textContent = "Enter the hallway";
-    button1.addEventListener('click', loadHallwayScene);
+    button1.onclick = loadHallwayScene;
   
     button2.textContent = "Check the pantry";
-    //button2.addEventListener('click' loadBirdsScene);
+    //button1.onclick = loadHallwayScene;
     
 }
 
@@ -102,10 +107,10 @@ function loadHallwayScene() {
     text.textContent = "Hej och välkommen till min värld";
   
     button1.textContent = "Go to the bedroom";
-    button1.addEventListener('click', loadBedroomScene);
+    button1.onclick = loadHallwayScene;
   
     button2.textContent = "Go to the livingroom";
-    //button2.addEventListener('click' loadBirdsScene);
+    //button1.onclick = loadHallwayScene;
 }
 
 function loadBedroomScene() {
@@ -115,7 +120,7 @@ function loadBedroomScene() {
     text.textContent = "Hej och välkommen till min värld";
   
     button1.textContent = "Go back to the kitchen";
-    //button1.addEventListener('click' loadSaunaScene);
+    //button1.onclick = loadHallwayScene;
     
 }
 

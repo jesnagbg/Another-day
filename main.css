@@ -81,7 +81,9 @@ main {
 }
 
 .side-div {
-    width: 6rem;
+    display: flex;
+    justify-content: center;
+    width: 20rem;
 }
 
 .box-shadow {
