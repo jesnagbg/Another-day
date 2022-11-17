@@ -7,9 +7,9 @@ const gameContent = document.getElementById("game");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
-let text;
-let button1;
-let button2;
+text = document.getElementById('text');
+button1 = document.getElementById('opt-1');
+button2 = document.getElementById('opt-2');
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -20,7 +20,7 @@ function main() {
 function savePlayerName() {
     playerName = document.getElementById("name-input").value;
     console.log(playerName);
-    
+
     oneMoreQ();
 }
 
@@ -35,18 +35,18 @@ function oneMoreQ() {
 function chooseYourWeapon() {
     clear();
     const div = document.getElementById("button-container");
-    
+
     for (const weapon of chooseWeapon) {
         const button = document.createElement("button");
         button.className = "button-style";
         button.textContent = weapon;
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             itemList.push(weapon);
-            displayItems();
+            //displayItems();
             loadFirstPage();
         })
         div.append(button);
-    }    
+    }
 }
 
 function removeStartPage() {
@@ -85,43 +85,54 @@ function loadFirstPage() {
     displayItems();
     gameContent.classList.remove("invis");
 
+    text.textContent = "So, " + playerName + ", you find yourself alone in your kitchen. The sun is shining.";
+
+    button1.textContent = "Stare out the window";
+    button1.onclick = loadWindowScene;
+
+    button2.textContent = "Try to feel something";
+    button2.onclick = loadSnackScene;
+
+}
+
+function loadWindowScene() {
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
 
-    text.textContent = "Hej " + playerName + " och välkommen till min värld";
-  
-    button1.textContent = "Enter the hallway";
-    button1.onclick = loadHallwayScene;
-  
-    button2.textContent = "Check the pantry";
-    //button1.onclick = loadHallwayScene;
-    
+    text.textContent = "Your garden is looking quite neglected. Perhaps you should plant those potatoes?";
+
+    button1.textContent = "Get a snack first";
+    button1.onclick = loadPantryScene;
+
+    button2.textContent = "Look for the potatoes";
+    button2.onclick = loadPantryScene;
 }
 
-function loadHallwayScene() {
+function loadSnackScene() {
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
 
-    text.textContent = "Hej och välkommen till min värld";
-  
-    button1.textContent = "Go to the bedroom";
-    button1.onclick = loadHallwayScene;
-  
-    button2.textContent = "Go to the livingroom";
-    //button1.onclick = loadHallwayScene;
+    text.textContent = "You feel a bit peckish. Better check the pantry for a snack!";
+
+    button1.textContent = "Go to the pantry";
+    button1.onclick = loadPantryScene;
+    
 }
 
-function loadBedroomScene() {
+function loadPantryScene() {
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
-    
-    text.textContent = "Hej och välkommen till min värld";
-  
-    button1.textContent = "Go back to the kitchen";
+
+    text.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
+
+    button1.textContent = "Give Margret a call";
     //button1.onclick = loadHallwayScene;
-    
+
+    button2.textContent = "Look, the potatoes!";
+    //button1.onclick = loadPantryScene;
+
 }
 
 
