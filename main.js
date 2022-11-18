@@ -7,6 +7,7 @@ const gameContent = document.getElementById("game");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
+let gameText;
 let leftButton;
 let rightButton;
 //text = document.getElementById('text');
@@ -131,20 +132,21 @@ function loadPantryScene() {
 }
 
 function makeGamePage() {
-    let gameText = document.createElement("p");
+
+    gameText = document.createElement("p");
     gameText.id = "text";
-    gameText.classList.add = "fade-in";
+    gameText.classList = "fade-in";
     
-    let leftButton = document.createElement("button");
+    leftButton = document.createElement("button");
     leftButton.id = "opt-1";
-    leftButton.classList.add = "button-style fade-in";
+    leftButton.classList = "button-style fade-in";
     
-    let rightButton = document.createElement("button");
+    rightButton = document.createElement("button");
     rightButton.id = "opt-2";
-    rightButton.classList.add = "button-style fade-in";
+    rightButton.classList = "button-style fade-in";
     
     gameContent.innerHTML = "";
-    gameContent.append(p, leftButton, rightButton);
+    gameContent.append(gameText, leftButton, rightButton);
 
 }
 
