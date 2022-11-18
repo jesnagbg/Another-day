@@ -7,9 +7,11 @@ const gameContent = document.getElementById("game");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
+let leftButton;
+let rightButton;
 //text = document.getElementById('text');
-//button1 = document.getElementById('opt-1');
-//button2 = document.getElementById('opt-2');
+//leftButton = document.getElementById('opt-1');
+//rightButton = document.getElementById('opt-2');
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -29,23 +31,23 @@ function oneMoreQ() {
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon';
 
     timeoutRef = setTimeout(chooseYourWeapon, 1000);
-    //choseYourWeapon();
+    //chooseYourWeapon();
 }
 
 function chooseYourWeapon() {
     clear();
-    const div = document.getElementById("button-container");
+    const optionDiv = document.getElementById("button-container");
 
     for (const weapon of chooseWeapon) {
-        const button = document.createElement("button");
-        button.className = "button-style";
-        button.textContent = weapon;
-        button.addEventListener('click', function () {
+        const weaponButton = document.createElement("button");
+        weaponButton.className = "button-style";
+        weaponButton.textContent = weapon;
+        weaponButton.addEventListener('click', function () {
             itemList.push(weapon);
             //displayItems();
             loadFirstPage();
         })
-        div.append(button);
+        optionDiv.append(weaponButton);
     }
 }
 
@@ -58,9 +60,9 @@ function clear() {
 }
 
 function displayItems() {
-    const p = document.getElementById("player-pocket");
-    p.textContent = "Your pocket";
-    const div = document.getElementById("item-container");
+    const pocketTitle = document.getElementById("player-pocket");
+    pocketTitle.textContent = "Your pocket";
+    const pocketDiv = document.getElementById("item-container");
     const ul = document.createElement("ul");
     ul.id = "item-list";
 
@@ -70,8 +72,8 @@ function displayItems() {
         ul.append(li);
     }
 
-    div.innerHTML = "";
-    div.append(ul);
+    pocketDiv.innerHTML = "";
+    pocketDiv.append(ul);
 }
 
 //do I need both? maybe hide is better than wiping for restarting
@@ -86,66 +88,63 @@ function loadFirstPage() {
     gameContent.classList.remove("invis");
     makeGamePage();
 
-    text.textContent = "So, " + playerName + ", you find yourself alone in your kitchen. The sun is shining.";
+    gameText.textContent = "So, " + playerName + ", you find yourself alone in your kitchen. The sun is shining.";
 
-    button1.textContent = "Stare out the window";
-    button1.onclick = loadWindowScene;
+    leftButton.textContent = "Stare out the window";
+    leftButton.onclick = loadWindowScene;
 
-    button2.textContent = "Try to feel something";
-    button2.onclick = loadSnackScene;
+    rightButton.textContent = "Try to feel something";
+    rightButton.onclick = loadSnackScene;
 
 }
 
 function loadWindowScene() {
     makeGamePage();
-    text.textContent = "Your garden is looking quite neglected. Perhaps you should plant those potatoes?";
+    gameText.textContent = "Your garden is looking quite neglected. Perhaps you should plant those potatoes?";
 
-    button1.textContent = "Get a snack first";
-    button1.onclick = loadPantryScene;
+    leftButton.textContent = "Get a snack first";
+    leftButton.onclick = loadPantryScene;
 
-    button2.textContent = "Look for the potatoes";
-    button2.onclick = loadPantryScene;
+    rightButton.textContent = "Look for the potatoes";
+    rightButton.onclick = loadPantryScene;
 }
 
 function loadSnackScene() {
     makeGamePage();
-    text.textContent = "You feel a bit peckish. Better check the pantry for a snack!";
+    gameText.textContent = "You feel a bit peckish. Better check the pantry for a snack!";
 
-    button1.textContent = "Go to the pantry";
-    button1.onclick = loadPantryScene;
+    leftButton.textContent = "Go to the pantry";
+    leftButton.onclick = loadPantryScene;
     
 }
 
 function loadPantryScene() {
     makeGamePage();
-    text.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
+    gameText.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
 
-    button1.textContent = "Give Margret a call";
-    //button1.onclick = loadHallwayScene;
+    leftButton.textContent = "Give Margret a call";
+    //leftButton.onclick = loadHallwayScene;
 
-    button2.textContent = "Look, the potatoes!";
-    //button1.onclick = loadPantryScene;
+    rightButton.textContent = "Look, the potatoes!";
+    //leftButton.onclick = loadPantryScene;
 
 }
 
 function makeGamePage() {
-
+    let gameText = document.createElement("p");
+    gameText.id = "text";
+    gameText.classList.add = "fade-in";
     
-    const p = document.createElement("p");
-    p.id = "text";
-    p.classList.add = "fade-in";
+    let leftButton = document.createElement("button");
+    leftButton.id = "opt-1";
+    leftButton.classList.add = "button-style fade-in";
     
-    const button1 = document.createElement("button");
-    button1.id = "opt-1";
-    button1.classList.add = "button-style fade-in";
-    
-    const button2 = document.createElement("button");
-    button2.id = "opt-2";
-    button2.classList.add = "button-style fade-in";
+    let rightButton = document.createElement("button");
+    rightButton.id = "opt-2";
+    rightButton.classList.add = "button-style fade-in";
     
     gameContent.innerHTML = "";
-    gameContent.append(p, button1, button2);
-    
+    gameContent.append(p, leftButton, rightButton);
 
 }
 
