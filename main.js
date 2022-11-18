@@ -125,11 +125,21 @@ function loadPantryScene() {
 }
 
 function makeGamePage() {
+
     const p = document.createElement("p");
     p.id = "text";
-    p.classList = "fade-in-text";
+    p.classList = "fade-in";
 
     const button1 = createElement("button");
+    button1.id = "opt-1";
+    button1.classList = "button-style fade-in";
+
+    const button2 = createElement("button");
+    button2.id = "opt-2";
+    button2.classList = "button-style fade-in";
+
+    gameContent.innerHTML = "";
+    gameContent.append(p, button1, button2)
     
 
 }

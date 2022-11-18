@@ -30,7 +30,7 @@ header {
     font-size: 34px;
 }
 
-.fade-in-text {
+.fade-in {
     animation: fadeIn 5s;
 }
 
