@@ -8,6 +8,7 @@ const gameContent = document.getElementById("game");
 let playerName = "Farmer";
 let timeoutRef;
 let gameText;
+let buttonDiv;
 let leftButton;
 let rightButton;
 //text = document.getElementById('text');
@@ -136,6 +137,8 @@ function makeGamePage() {
     gameText = document.createElement("p");
     gameText.id = "text";
     gameText.classList = "fade-in";
+
+    buttonDiv = document.createElement("div");
     
     leftButton = document.createElement("button");
     leftButton.id = "opt-1";
@@ -146,7 +149,8 @@ function makeGamePage() {
     rightButton.classList = "button-style fade-in";
     
     gameContent.innerHTML = "";
-    gameContent.append(gameText, leftButton, rightButton);
+    gameContent.append(gameText, buttonDiv);
+    buttonDiv.append(leftButton, rightButton);
 
 }
 

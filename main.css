@@ -47,8 +47,8 @@ header {
 .middle-of-screen-container {
     display: flex;
     flex-direction: column;
+    width: 35rem;
 }
-
 
 aside {
     display: flex;
