@@ -7,9 +7,9 @@ const gameContent = document.getElementById("game");
 //const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
-text = document.getElementById('text');
-button1 = document.getElementById('opt-1');
-button2 = document.getElementById('opt-2');
+//text = document.getElementById('text');
+//button1 = document.getElementById('opt-1');
+//button2 = document.getElementById('opt-2');
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -84,6 +84,7 @@ function loadFirstPage() {
     removeStartPage();
     displayItems();
     gameContent.classList.remove("invis");
+    makeGamePage();
 
     text.textContent = "So, " + playerName + ", you find yourself alone in your kitchen. The sun is shining.";
 
@@ -96,6 +97,7 @@ function loadFirstPage() {
 }
 
 function loadWindowScene() {
+    makeGamePage();
     text.textContent = "Your garden is looking quite neglected. Perhaps you should plant those potatoes?";
 
     button1.textContent = "Get a snack first";
@@ -106,6 +108,7 @@ function loadWindowScene() {
 }
 
 function loadSnackScene() {
+    makeGamePage();
     text.textContent = "You feel a bit peckish. Better check the pantry for a snack!";
 
     button1.textContent = "Go to the pantry";
@@ -114,6 +117,7 @@ function loadSnackScene() {
 }
 
 function loadPantryScene() {
+    makeGamePage();
     text.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
 
     button1.textContent = "Give Margret a call";
@@ -126,20 +130,21 @@ function loadPantryScene() {
 
 function makeGamePage() {
 
+    
     const p = document.createElement("p");
     p.id = "text";
-    p.classList = "fade-in";
-
-    const button1 = createElement("button");
+    p.classList.add = "fade-in";
+    
+    const button1 = document.createElement("button");
     button1.id = "opt-1";
-    button1.classList = "button-style fade-in";
-
-    const button2 = createElement("button");
+    button1.classList.add = "button-style fade-in";
+    
+    const button2 = document.createElement("button");
     button2.id = "opt-2";
-    button2.classList = "button-style fade-in";
-
+    button2.classList.add = "button-style fade-in";
+    
     gameContent.innerHTML = "";
-    gameContent.append(p, button1, button2)
+    gameContent.append(p, button1, button2);
     
 
 }
