@@ -32,7 +32,7 @@ function oneMoreQ() {
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon!';
 
     timeoutRef = setTimeout(chooseYourWeapon, 1000);
-    
+
 }
 
 function chooseYourWeapon() {
@@ -139,17 +139,17 @@ function loadPantryScene() {
         
         if (itemList.includes("Broom")) {
             rightButton.textContent = "Tidy up a bit";
-            leftButton.onclick = loadPotatoScene;  
+            rightButton.onclick = loadPotatoScene; 
         } else {
             rightButton.textContent = "Look for candy instead";
-            leftButton.onclick = loadLivingroomScene;  
+            rightButton.onclick = loadLivingroomScene;  
         }
     }, 2000)
 }
 
 function loadMargretScene() {
     makeGamePage();
-    gameText1.textContent = 'Margrets stomach did not agree with your "gift".';
+    gameText1.textContent = 'Margrets stomach did not agree with your "gift", ' + playerName + '.';
     gameText2.textContent = "Sadly, she passed away from botulism poisoning.";
     
     setTimeout(function() {
@@ -165,7 +165,7 @@ function loadMargretScene() {
 function loadPotatoScene() {
     makeGamePage();
     gameText1.textContent = "As you clean your pantry you spot the potatoes in the corner.";
-    gameText2.textContent = "Today is a good day! You win!";
+    gameText2.textContent = 'You go out to plant them. You win,' + playerName + '!';
     
     setTimeout(function() {
         rightButton.remove();
@@ -188,7 +188,7 @@ function loadLivingroomScene() {
         
         if (itemList.includes("Needle")) {
             rightButton.textContent = "Mend more socks";
-            leftButton.onclick = loadSockScene;  
+            rightButton.onclick = loadSockScene;  
         } else {
             rightButton.remove();  
         }
@@ -198,7 +198,7 @@ function loadLivingroomScene() {
 
 function loadSockScene() {
     makeGamePage();
-    gameText1.textContent = "Not every day turn out the way we want.";
+    gameText1.textContent = 'Not every day turn out the way we want,' + playerName + '.';
     gameText2.textContent = "At least your socks won't have potatoes sticking out anymore!";
     
     setTimeout(function() {
@@ -226,7 +226,7 @@ function loadKitchenScene() {
         
         if (itemList.includes("Carrot")) {
             rightButton.textContent = "Plant the carrot instead";
-            leftButton.onclick = loadCarrotScene;  
+            rightButton.onclick = loadCarrotScene;  
         } else {
             rightButton.remove();
         }
