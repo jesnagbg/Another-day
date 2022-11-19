@@ -134,16 +134,54 @@ function loadSnackScene() {
 
 function loadPantryScene() {
     makeGamePage();
-    gameText1.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
+    gameText1.textContent = "The pantry is dark and dusty. You spot an old jar of preserved fruit.";
+    gameText2.textContent = "Shame to let it go to waste.. Maybe Margret would like some?";
 
     setTimeout(function() {
         leftButton.textContent = "Give Margret a call";
-        //leftButton.onclick = loadHallwayScene;
+        leftButton.onclick = loadHallwayScene;
         
-        rightButton.textContent = "Look, the potatoes!";
-        //leftButton.onclick = loadPantryScene;  
+        if (itemList.includes("Broom")) {
+            rightButton.textContent = "Tidy up a bit";
+            leftButton.onclick = loadPotatoScene;  
+        } else {
+            rightButton.textContent = "Look for candy instead";
+            //leftButton.onclick = loadPantryScene;  
+        }
     }, 2000)
 }
+
+function loadHallwayScene() {
+    makeGamePage();
+    gameText1.textContent = 'Margrets stomach did not agree with your "gift".';
+    gameText2.textContent = "Sadly, she passed away from botulism poisoning.";
+    
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Start over";
+        leftButton.onclick = function() {
+            window.location.reload()
+        }
+
+    }, 2000)
+}
+
+function loadPotatoScene() {
+    makeGamePage();
+    gameText1.textContent = "As you clean your pantry you spot the potatoes in the corner.";
+    gameText2.textContent = "Today is a good day! You win!";
+    
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Play again";
+        leftButton.onclick = function() {
+            window.location.reload()
+        }
+
+    }, 2000)
+}
+
+
 
 function makeGamePage() {
     gameText1 = document.createElement("p");
@@ -176,7 +214,3 @@ function makeGameButtons() {
     buttonDiv.append(leftButton, rightButton);
 }
 
-
-setTimeout(function() {
-  
-}, 2000)
