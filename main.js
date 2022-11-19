@@ -139,19 +139,19 @@ function loadPantryScene() {
 
     setTimeout(function() {
         leftButton.textContent = "Give Margret a call";
-        leftButton.onclick = loadHallwayScene;
+        leftButton.onclick = loadMargretScene;
         
         if (itemList.includes("Broom")) {
             rightButton.textContent = "Tidy up a bit";
             leftButton.onclick = loadPotatoScene;  
         } else {
             rightButton.textContent = "Look for candy instead";
-            //leftButton.onclick = loadPantryScene;  
+            //leftButton.onclick = loadLivingroomScene;  
         }
     }, 2000)
 }
 
-function loadHallwayScene() {
+function loadMargretScene() {
     makeGamePage();
     gameText1.textContent = 'Margrets stomach did not agree with your "gift".';
     gameText2.textContent = "Sadly, she passed away from botulism poisoning.";
@@ -181,6 +181,91 @@ function loadPotatoScene() {
     }, 2000)
 }
 
+function loadLivingroomScene() {
+    makeGamePage();
+    gameText1.textContent = "Your livingroom is quite messy, half-mended socks everywhere.";
+    gameText2.textContent = "No candy, however. You ate it all, remember?";
+
+    setTimeout(function() {
+        leftButton.textContent = "Go back to the kitchen";
+        leftButton.onclick = loadKitchenScene;
+        
+        if (itemList.includes("Needle")) {
+            rightButton.textContent = "Mend more socks";
+            leftButton.onclick = loadSockScene;  
+        } else {
+            rightButton.remove();  
+        }
+
+    }, 2000)
+}
+
+function loadSockScene() {
+    makeGamePage();
+    gameText1.textContent = "Not every day turn out the way we want.";
+    gameText2.textContent = "At least your socks won't have potatoes sticking out anymore!";
+    
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Play again";
+        leftButton.onclick = function() {
+            window.location.reload()
+        }
+
+    }, 2000)
+}
+
+function loadKitchenScene() {
+    makeGamePage();
+    gameText1.textContent = "Your eyes span across the kitchen counters.";
+    if (itemList.includes("Carrot")) {
+        gameText2.textContent = "You spot the carrot.";
+    } else {
+        gameText2.textContent = "Back where you started, eh?"; 
+    }
+    
+    setTimeout(function() {
+        leftButton.textContent = "Go take a nap";
+        leftButton.onclick = loadNapScene;
+        
+        if (itemList.includes("Carrot")) {
+            rightButton.textContent = "Plant the carrot instead";
+            leftButton.onclick = loadCarrotScene;  
+        } else {
+            rightButton.remove();
+        }
+    }, 2000)
+}
+
+function loadNapScene() {
+    makeGamePage();
+    gameText1.textContent = "Not every day turn out the way we want.";
+    gameText2.textContent = "At least you didn't kill anyone.";
+    
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Play again";
+        leftButton.onclick = function() {
+            window.location.reload()
+        }
+
+    }, 2000)
+}
+
+function loadCarrotScene() {
+    makeGamePage();
+    gameText1.textContent = "Carrots are almost as good as potatoes.";
+    gameText2.textContent = "Today is a pretty good day! You (sorta) win!";
+    
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Play again";
+        leftButton.onclick = function() {
+            window.location.reload()
+        }
+
+    }, 2000)
+}
 
 
 function makeGamePage() {
