@@ -13,7 +13,6 @@ let buttonDiv;
 let leftButton;
 let rightButton;
 let timeoutButtons;
-let timeoutButtonText;
 //text = document.getElementById('text');
 //leftButton = document.getElementById('opt-1');
 //rightButton = document.getElementById('opt-2');
@@ -96,65 +95,57 @@ function loadFirstPage() {
     gameText1.textContent = "So, " + playerName + ", you find yourself alone in your kitchen.";
     gameText2.textContent = "The sun is shining outside. What would you like to do?";
 
-    timeoutButtonText = setTimeout(loadFirstPageButtons, 2000)
-    
+    setTimeout(function() {
+        leftButton.textContent = "Stare out the window";
+        leftButton.onclick = loadWindowScene;
+
+        rightButton.textContent = "Try to feel something";
+        rightButton.onclick = loadSnackScene;
+    }, 2000)
+       
 }
 
-function loadFirstPageButtons() {
-    
-    leftButton.textContent = "Stare out the window";
-    leftButton.onclick = loadWindowScene;
-    
-    rightButton.textContent = "Try to feel something";
-    rightButton.onclick = loadSnackScene;
-
-}
-
-function loadWindowScene() {
-    
+function loadWindowScene() {    
     makeGamePage();
     gameText1.textContent = "Your garden is looking quite neglected.";
     gameText2.textContent = "How about you at least attempt to grow something this year?";
 
-    timeoutButtonText = setTimeout(loadWindowSceneButtons, 2000)
+    setTimeout(function() {
+        leftButton.textContent = "Get a snack first";
+        leftButton.onclick = loadPantryScene;
+        
+        rightButton.textContent = "Look for the potatoes";
+        rightButton.onclick = loadPantryScene;  
+    }, 2000)
     
-}
-
-function loadWindowSceneButtons() {
-    
-    leftButton.textContent = "Get a snack first";
-    leftButton.onclick = loadPantryScene;
-    
-    rightButton.textContent = "Look for the potatoes";
-    rightButton.onclick = loadPantryScene;
-
 }
 
 function loadSnackScene() {
     makeGamePage();
-    rightButton.remove();
     gameText1.textContent = "You feel....";
     gameText2.textContent = "..a bit peckish. Better check the pantry for a snack!";
-
-    leftButton.textContent = "Go to the pantry";
-    leftButton.onclick = loadPantryScene;
     
+    setTimeout(function() {
+        rightButton.remove();
+        leftButton.textContent = "Go to the pantry";
+        leftButton.onclick = loadPantryScene;  
+    }, 2000)
 }
 
 function loadPantryScene() {
     makeGamePage();
     gameText1.textContent = "The pantry is dark and dusty. You spot some preserved fruit that doesn't look quite right anymore. Shame to waste it though.. Maybe Margret would like some?";
 
-    leftButton.textContent = "Give Margret a call";
-    //leftButton.onclick = loadHallwayScene;
-
-    rightButton.textContent = "Look, the potatoes!";
-    //leftButton.onclick = loadPantryScene;
-
+    setTimeout(function() {
+        leftButton.textContent = "Give Margret a call";
+        //leftButton.onclick = loadHallwayScene;
+        
+        rightButton.textContent = "Look, the potatoes!";
+        //leftButton.onclick = loadPantryScene;  
+    }, 2000)
 }
 
 function makeGamePage() {
-
     gameText1 = document.createElement("p");
     gameText1.id = "text";
     gameText1.classList = "fade-in-first";
@@ -173,8 +164,7 @@ function makeGamePage() {
     
 }
 
-function makeGameButtons() {
-    
+function makeGameButtons() {    
     leftButton = document.createElement("button");
     leftButton.id = "opt-1";
     leftButton.classList = "button-style";
@@ -186,3 +176,7 @@ function makeGameButtons() {
     buttonDiv.append(leftButton, rightButton);
 }
 
+
+setTimeout(function() {
+  
+}, 2000)
