@@ -4,7 +4,6 @@ const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
 const gameContent = document.getElementById("game");
-//const spareQuestion = document.getElementById("extra-question");
 let playerName = "Farmer";
 let timeoutRef;
 let gameText1;
@@ -13,9 +12,7 @@ let buttonDiv;
 let leftButton;
 let rightButton;
 let timeoutButtons;
-//text = document.getElementById('text');
-//leftButton = document.getElementById('opt-1');
-//rightButton = document.getElementById('opt-2');
+
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -48,7 +45,6 @@ function chooseYourWeapon() {
         weaponButton.textContent = weapon;
         weaponButton.addEventListener('click', function () {
             itemList.push(weapon);
-            //displayItems();
             loadFirstPage();
         })
         optionDiv.append(weaponButton);
@@ -146,7 +142,7 @@ function loadPantryScene() {
             leftButton.onclick = loadPotatoScene;  
         } else {
             rightButton.textContent = "Look for candy instead";
-            //leftButton.onclick = loadLivingroomScene;  
+            leftButton.onclick = loadLivingroomScene;  
         }
     }, 2000)
 }
