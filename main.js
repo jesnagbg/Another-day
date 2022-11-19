@@ -32,7 +32,7 @@ function oneMoreQ() {
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon!';
 
     timeoutRef = setTimeout(chooseYourWeapon, 1000);
-    //chooseYourWeapon();
+    
 }
 
 function chooseYourWeapon() {
