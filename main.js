@@ -103,7 +103,7 @@ function loadFirstPage() {
 
 function loadWindowScene() {    
     makeGamePage();
-    gameText1.textContent = "Your garden is looking quite neglected.";
+    gameText1.textContent = "Your potato patch is looking quite neglected.";
     gameText2.textContent = "How about you at least attempt to grow something this year?";
 
     setTimeout(function() {
@@ -215,7 +215,7 @@ function loadKitchenScene() {
     makeGamePage();
     gameText1.textContent = "Your eyes span across the kitchen counters.";
     if (itemList.includes("Carrot")) {
-        gameText2.textContent = "You spot the carrot.";
+        gameText2.textContent = "You remember the carrot in your pocket.";
     } else {
         gameText2.textContent = "Back where you started, eh?"; 
     }
