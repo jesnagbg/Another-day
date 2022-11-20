@@ -1,12 +1,10 @@
 :root {
-    --header-height: 8rem;
-    --aside-width: 15vw;
+    --header-height: 10rem;
 }
 
 body {
     background: #e9edc9;
     margin: 0;
-    /* font-family: 'Crimson Text', serif; */
     font-family: Neucha, sans-serif;
 }
 
@@ -27,14 +25,13 @@ header {
     align-items: center;
     height: var(--header-height);
     font-weight: 600;
-    font-size: 34px;
+    font-size: 48px;
 }
 
 main {
     justify-content: center;
-    margin-top: var(--header-height);
+    margin-top: calc(var(--header-height) + 2rem);
 }
-
 
 .page-container {
     display: flex;
@@ -46,13 +43,6 @@ main {
     flex-direction: column;
     width: 35rem;
 }
-
-/* aside {
-    display: flex;
-    background: #d4a373;
-    height: 100vh;
-    width: var(--aside-width);
-} */
 
 .pocket p {
     padding-left: 1rem;
@@ -72,10 +62,6 @@ main {
     flex-direction: column;
 }
 
-.invis {
-    display: none;
-}
-
 #extra-question {
     margin: 1rem;
 }
@@ -86,9 +72,7 @@ main {
     width: 20rem;
 }
 
-/* .box-shadow {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-} */
+/* Fade in animation for the game scenes */
 
 .fade-in-first {
     animation: fadeInFirst 3s;
@@ -116,7 +100,6 @@ main {
   color: #41403e;
   cursor:grab;
   display: inline-block;
-  font-family: Neucha, sans-serif;
   font-size: 1rem;
   line-height: 23px;
   padding: .75rem;
@@ -152,7 +135,6 @@ main {
   box-sizing: border-box;
   color: #41403e;
   display: inline-block;
-  font-family: Neucha, sans-serif;
   font-size: 1rem;
   line-height: 23px;
   border-bottom-left-radius: 15px 255px;

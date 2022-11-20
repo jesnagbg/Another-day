@@ -33,12 +33,13 @@ let leftButton;
  */
 let rightButton;
 
-/* ------------------------------- HTML Elements -------------------------------- */
+/* ------------------------------- HTML ELEMENTS -------------------------------- */
 
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
 const gameContent = document.getElementById("game");
+
 
 /* ------------------------------- INTRO SCENE -------------------------------- */
 
@@ -55,7 +56,7 @@ function main() {
  * A function that saves the user input and runs the function oneMoreQ.
  */
 function savePlayerName() {
-    playerName = document.getElementById("name-input").value;
+    if (nameInput.value) playerName = nameInput.value;
 
     oneMoreQ();
 }
@@ -97,7 +98,7 @@ function clear() {
     document.getElementById("button-container").innerHTML = "";
 }
 
-/* ------------------------------- START OF GAME SCENES -------------------------------- */
+/* ------------------------------- ELEMENTS FOR GAME SCENES -------------------------------- */
 
 /**
  * Wipes the startpage.
@@ -153,15 +154,16 @@ function makeGamePage() {
 function makeGameButtons() {    
     leftButton = document.createElement("button");
     leftButton.id = "opt-1";
-    leftButton.classList = "button-style";
+    leftButton.classList = "button-style fade-in-first";
     
     rightButton = document.createElement("button");
     rightButton.id = "opt-2";
-    rightButton.classList = "button-style";
+    rightButton.classList = "button-style fade-in-first";
     
     buttonDiv.append(leftButton, rightButton);
 }
 
+/* ------------------------------- START OF GAME SCENES -------------------------------- */
 
 /**
  * Fills the p elements with text.
@@ -170,7 +172,6 @@ function makeGameButtons() {
 function loadFirstScene() {
     removeStartPage();
     displayItems();
-    gameContent.classList.remove("invis");
     makeGamePage();
 
     gameText1.textContent = "So, " + playerName + ", you find yourself alone in your kitchen.";
