@@ -1,3 +1,5 @@
+/* ------------------------------- GLOBAL -------------------------------- */
+
 /**
  * Array for user held items. (Pocket)
  */
@@ -6,18 +8,10 @@ let itemList = ["Fluff", "Button"];
  * Array for user options at start.
  */
 const chooseWeapon = ["Sword", "Broom", "Needle", "Carrot"];
-
-const nameInput = document.getElementById("name-input");
-const nameButton = document.getElementById("start-button");
-const startPageContent = document.getElementById("start-page");
-const gameContent = document.getElementById("game");
-
 /**
  * User choosen name.
  */
 let playerName = "Farmer";
-
-let timeoutRef;
 /**
  * First p tag on game scenes.
  */
@@ -39,6 +33,14 @@ let leftButton;
  */
 let rightButton;
 
+/* ------------------------------- HTML Elements -------------------------------- */
+
+const nameInput = document.getElementById("name-input");
+const nameButton = document.getElementById("start-button");
+const startPageContent = document.getElementById("start-page");
+const gameContent = document.getElementById("game");
+
+/* ------------------------------- INTRO SCENE -------------------------------- */
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -54,7 +56,6 @@ function main() {
  */
 function savePlayerName() {
     playerName = document.getElementById("name-input").value;
-    console.log(playerName);
 
     oneMoreQ();
 }
@@ -66,8 +67,7 @@ function oneMoreQ() {
     const extraQuestion = document.getElementById("extra-question");
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon!';
 
-    timeoutRef = setTimeout(chooseYourWeapon, 1000);
-
+    setTimeout(chooseYourWeapon, 1000);
 }
 
 /**
@@ -84,17 +84,10 @@ function chooseYourWeapon() {
         weaponButton.textContent = weapon;
         weaponButton.addEventListener('click', function () {
             itemList.push(weapon);
-            loadFirstPage();
+            loadFirstScene();
         })
         optionDiv.append(weaponButton);
     }
-}
-
-/**
- * Wipes the startpage.
- */
-function removeStartPage() {
-    startPageContent.innerHTML = "";
 }
 
 /**
@@ -102,6 +95,15 @@ function removeStartPage() {
  */
 function clear() {
     document.getElementById("button-container").innerHTML = "";
+}
+
+/* ------------------------------- START OF GAME SCENES -------------------------------- */
+
+/**
+ * Wipes the startpage.
+ */
+function removeStartPage() {
+    startPageContent.innerHTML = "";
 }
 
 /**
@@ -125,10 +127,47 @@ function displayItems() {
 }
 
 /**
+ * Creates the elements for the text on each game scene. Triggers makeGameButtons after 2 seconds.
+ */
+function makeGamePage() {
+    gameText1 = document.createElement("p");
+    gameText1.id = "text";
+    gameText1.classList = "fade-in-first";
+    
+    gameText2 = document.createElement("p");
+    gameText2.id = "text";
+    gameText2.classList = "fade-in-first";
+    
+    buttonDiv = document.createElement("div");
+    
+    
+    gameContent.innerHTML = "";
+    gameContent.append(gameText1, gameText2, buttonDiv);
+    
+    setTimeout(makeGameButtons, 2000);
+}
+
+/**
+ * Creates the elements for the option buttons on each game scene.
+ */
+function makeGameButtons() {    
+    leftButton = document.createElement("button");
+    leftButton.id = "opt-1";
+    leftButton.classList = "button-style";
+    
+    rightButton = document.createElement("button");
+    rightButton.id = "opt-2";
+    rightButton.classList = "button-style";
+    
+    buttonDiv.append(leftButton, rightButton);
+}
+
+
+/**
  * Fills the p elements with text.
  * Fills the button elements with text and links them to other scenes (2 second delay).
  */
-function loadFirstPage() {
+function loadFirstScene() {
     removeStartPage();
     displayItems();
     gameContent.classList.remove("invis");
@@ -144,7 +183,6 @@ function loadFirstPage() {
         rightButton.textContent = "Try to feel something";
         rightButton.onclick = loadSnackScene;
     }, 2000)
-       
 }
 
 /**
@@ -163,7 +201,6 @@ function loadWindowScene() {
         rightButton.textContent = "Look for the potatoes";
         rightButton.onclick = loadPantryScene;  
     }, 2000)
-    
 }
 
 /**
@@ -246,6 +283,11 @@ function loadPotatoScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ * If the item "Needle" has been added to the array itemList it offers a different path.
+ */
 function loadLivingroomScene() {
     makeGamePage();
     gameText1.textContent = "Your livingroom is quite messy, half-mended socks everywhere.";
@@ -285,6 +327,11 @@ function loadSockScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ * If the item "Carrot" has been added to the array itemList it offers a different path.
+ */
 function loadKitchenScene() {
     makeGamePage();
     gameText1.textContent = "Your eyes span across the kitchen counters.";
@@ -346,41 +393,3 @@ function loadCarrotScene() {
 
     }, 2000)
 }
-
-/**
- * Creates the elements for the text on each game scene. Triggers makeGameButtons after 2 seconds.
- */
-function makeGamePage() {
-    gameText1 = document.createElement("p");
-    gameText1.id = "text";
-    gameText1.classList = "fade-in-first";
-
-    gameText2 = document.createElement("p");
-    gameText2.id = "text";
-    gameText2.classList = "fade-in-first";
-
-    buttonDiv = document.createElement("div");
-    
-    
-    gameContent.innerHTML = "";
-    gameContent.append(gameText1, gameText2, buttonDiv);
-
-    setTimeout(makeGameButtons, 2000);
-    
-}
-
-/**
- * Creates the elements for the option buttons on each game scene.
- */
-function makeGameButtons() {    
-    leftButton = document.createElement("button");
-    leftButton.id = "opt-1";
-    leftButton.classList = "button-style";
-    
-    rightButton = document.createElement("button");
-    rightButton.id = "opt-2";
-    rightButton.classList = "button-style";
-    
-    buttonDiv.append(leftButton, rightButton);
-}
-
