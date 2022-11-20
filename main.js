@@ -1,25 +1,57 @@
+/**
+ * Array for user held items. (Pocket)
+ */
 let itemList = ["Fluff", "Button"];
+/**
+ * Array for user options at start.
+ */
 const chooseWeapon = ["Sword", "Broom", "Needle", "Carrot"];
+
 const nameInput = document.getElementById("name-input");
 const nameButton = document.getElementById("start-button");
 const startPageContent = document.getElementById("start-page");
 const gameContent = document.getElementById("game");
+
+/**
+ * User choosen name.
+ */
 let playerName = "Farmer";
+
 let timeoutRef;
+/**
+ * First p tag on game scenes.
+ */
 let gameText1;
+/**
+ * Second p tag on game scenes.
+ */
 let gameText2;
+/**
+ * Button container (div).
+ */
 let buttonDiv;
+/**
+ * Left button on game scenes.
+ */
 let leftButton;
+/**
+ * Right button on game scenes.
+ */
 let rightButton;
-let timeoutButtons;
 
 
 window.addEventListener("DOMContentLoaded", main);
 
+/**
+ * Listens for the button to be pressed to save the user input.
+ */
 function main() {
     nameButton.addEventListener("click", savePlayerName);
 }
 
+/**
+ * A function that saves the user input and runs the function oneMoreQ.
+ */
 function savePlayerName() {
     playerName = document.getElementById("name-input").value;
     console.log(playerName);
@@ -27,6 +59,9 @@ function savePlayerName() {
     oneMoreQ();
 }
 
+/**
+ * Adds text to the page and after a one second delay runs the function chooseYourWeapon.
+ */
 function oneMoreQ() {
     const extraQuestion = document.getElementById("extra-question");
     extraQuestion.textContent = 'Oh, right. Sorry, ' + playerName + '. Just one more thing! Choose your weapon!';
@@ -35,6 +70,10 @@ function oneMoreQ() {
 
 }
 
+/**
+ * Takes items out of the array ChooseWeapon and creates a button for each of them.
+ * The button clicked get its item added to another array called itemList.
+ */
 function chooseYourWeapon() {
     clear();
     const optionDiv = document.getElementById("button-container");
@@ -51,14 +90,23 @@ function chooseYourWeapon() {
     }
 }
 
+/**
+ * Wipes the startpage.
+ */
 function removeStartPage() {
     startPageContent.innerHTML = "";
 }
 
+/**
+ * Resets the buttons so the user can't spawn an endless amount of them.
+ */
 function clear() {
     document.getElementById("button-container").innerHTML = "";
 }
 
+/**
+ * Creates a list from the array itemList, and adds a title to it.
+ */
 function displayItems() {
     const pocketTitle = document.getElementById("player-pocket");
     pocketTitle.textContent = "Your pocket";
@@ -76,12 +124,10 @@ function displayItems() {
     pocketDiv.append(ul);
 }
 
-//do I need both? maybe hide is better than wiping for restarting
-//function hideStartPage() {
-//    startPageContent.classList.add("invis");
-//}
-
-//display pocket, first text and new buttons (delayed)
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ */
 function loadFirstPage() {
     removeStartPage();
     displayItems();
@@ -101,6 +147,10 @@ function loadFirstPage() {
        
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ */
 function loadWindowScene() {    
     makeGamePage();
     gameText1.textContent = "Your potato patch is looking quite neglected.";
@@ -116,6 +166,10 @@ function loadWindowScene() {
     
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ */
 function loadSnackScene() {
     makeGamePage();
     gameText1.textContent = "You feel....";
@@ -128,6 +182,11 @@ function loadSnackScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button elements with text and links them to other scenes (2 second delay).
+ * If the item "Broom" has been added to the array itemList it offers a different path.
+ */
 function loadPantryScene() {
     makeGamePage();
     gameText1.textContent = "The pantry is dark and dusty. You spot an old jar of preserved fruit.";
@@ -147,6 +206,11 @@ function loadPantryScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button element with text and links to reload page (2 second delay).
+ * Game has ended.
+ */
 function loadMargretScene() {
     makeGamePage();
     gameText1.textContent = 'Margrets stomach did not agree with your "gift", ' + playerName + '.';
@@ -162,6 +226,11 @@ function loadMargretScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button element with text and links to reload page (2 second delay).
+ * Game has ended.
+ */
 function loadPotatoScene() {
     makeGamePage();
     gameText1.textContent = "As you clean your pantry you spot the potatoes in the corner.";
@@ -196,6 +265,11 @@ function loadLivingroomScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button element with text and links to reload page (2 second delay).
+ * Game has ended.
+ */
 function loadSockScene() {
     makeGamePage();
     gameText1.textContent = 'Not every day turn out the way we want,' + playerName + '.';
@@ -233,6 +307,11 @@ function loadKitchenScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button element with text and links to reload page (2 second delay).
+ * Game has ended.
+ */
 function loadNapScene() {
     makeGamePage();
     gameText1.textContent = "Not every day turn out the way we want.";
@@ -248,6 +327,11 @@ function loadNapScene() {
     }, 2000)
 }
 
+/**
+ * Fills the p elements with text.
+ * Fills the button element with text and links to reload page (2 second delay).
+ * Game has ended.
+ */
 function loadCarrotScene() {
     makeGamePage();
     gameText1.textContent = "Carrots are almost as good as potatoes.";
@@ -263,7 +347,9 @@ function loadCarrotScene() {
     }, 2000)
 }
 
-
+/**
+ * Creates the elements for the text on each game scene. Triggers makeGameButtons after 2 seconds.
+ */
 function makeGamePage() {
     gameText1 = document.createElement("p");
     gameText1.id = "text";
@@ -279,10 +365,13 @@ function makeGamePage() {
     gameContent.innerHTML = "";
     gameContent.append(gameText1, gameText2, buttonDiv);
 
-    timeoutButtons = setTimeout(makeGameButtons, 2000);
+    setTimeout(makeGameButtons, 2000);
     
 }
 
+/**
+ * Creates the elements for the option buttons on each game scene.
+ */
 function makeGameButtons() {    
     leftButton = document.createElement("button");
     leftButton.id = "opt-1";
